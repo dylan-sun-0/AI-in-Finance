@@ -82,7 +82,7 @@ years = days/periods
 CAGR = ((((end_val/start_val)**(1/years)))-1)
 
 try:
-    sharpe = CAGR/dfP['syst_rets'].std()
+    sharpe = (dfP['syst_rets'].mean() / dfP['syst_rets'].std()) * np.sqrt(360)
 except ZeroDivisionError:
     sharpe = 0.0
 
